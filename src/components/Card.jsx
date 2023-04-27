@@ -5,28 +5,36 @@ import Placeholder from "./Placeholder";
 const Card = () => {
   const [index, setIndex] = useState(1);
   const [advice, setAdvice] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  console.log(isLoading);
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetch(`https://api.adviceslip.com/advice/${index}`)
       .then((res) => res.json())
-      .then((data) =>
-        setTimeout(() => {
-          setAdvice(data.slip.advice);
-        }, 2000)
-      );
+      .then((data) => setAdvice(data.slip.advice));
+
+    setIsLoading(false);
   }, [index]);
 
   return (
     <div className={cardStyles.card}>
       <div className={cardStyles.layout}>
         <div className={cardStyles.card__inner}>
-          <div className={cardStyles.text__block__wrap}>
+          <div className={cardStyles.card__name}>
+            ADVICE
+            <span className={cardStyles.advice__number}>#{index}</span>
+          </div>
+          <div
+            className={
+              isLoading
+                ? `${cardStyles.text__block__wrap}`
+                : `${cardStyles.text__block__wrap} ${cardStyles.visibleAdvice}`
+            }
+          >
             <div className={cardStyles.text__block}>
-              <div className={cardStyles.card__name}>
-                ADVICE
-                <span className={cardStyles.advice__number}>#{index}</span>
-              </div>
-              {advice ? (
+              {!isLoading ? (
                 <q className={cardStyles.advice}>{advice}</q>
               ) : (
                 <Placeholder />
@@ -36,7 +44,9 @@ const Card = () => {
           <button
             type="button"
             className={cardStyles.btn}
-            onClick={() => setIndex(index + 1)}
+            onClick={() => {
+              setIndex(index + 1);
+            }}
           ></button>
         </div>
       </div>

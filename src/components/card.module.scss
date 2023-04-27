@@ -13,13 +13,7 @@
   border-radius: 10px;
   padding: 40px 0 39px;
   position: relative;
-  width: 100%;
-  max-width: 540px;
-  min-width: 540px;
-
-  @include media.desktop {
-
-  }
+  width: 540px;
 }
 
 .layout {
@@ -44,36 +38,55 @@
   text-align: center;
   letter-spacing: -0.25px;
   color: #CEE3E9;
-  margin-bottom: 32px;
   display: block;
-  border-bottom: 1px solid #4F5D74;
-  padding-bottom: 31px;
+  padding-bottom: 85px;
 }
 
 .text__block__wrap {
   position: relative;
   text-align: center;
+  display: flex;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-  //&:before {
-  //  content: '';
-  //  position: absolute;
-  //  left: 0;
-  //  right: 0;
-  //  margin: auto auto -7px;
-  //  background: #313A48 url(../../src/components/images/group.png) no-repeat center;
-  //  height: 16px;
-  //  width: 50px;
-  //  background-size: contain;
-  //  bottom: 0;
-  //  z-index: 1;
-  //}
+  &.visibleAdvice {
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto auto -7px;
+      background: #313A48 url(../../src/components/images/group.png) no-repeat center;
+      height: 16px;
+      width: 50px;
+      background-size: contain;
+      bottom: 40px;
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      width: 80%;
+      bottom: 40px;
+      /* z-index: 1; */
+      background: #4F5D74;
+      margin: auto;
+    }
+  }
 }
 
 .text__block {
   position: relative;
   padding: 0 26px;
+  width: 80%;
 }
-
 
 .btn {
   position: absolute;
@@ -128,9 +141,14 @@
 
 @keyframes sceleton-loading {
   0% {
-    background-color: hsl(200, 20%, 70%);
+    background-color: hsl(200, 20%, 20%);
   }
+
+  50% {
+    background-color: hsl(200, 20%, 40%);
+  }
+
   100% {
-    background-color: hsl(200, 20%, 95%);
+    background-color: hsl(200, 20%, 80%);
   }
 }
