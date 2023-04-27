@@ -3,10 +3,10 @@ import cardStyles from "./card.module.scss";
 
 const Placeholder = () => {
   return (
-    <ul>
-      <li className={cardStyles.advice__skeleton}></li>
-      <li className={cardStyles.advice__skeleton}></li>
-      <li className={cardStyles.advice__skeleton}></li>
+    <ul className={cardStyles.skeleton__list}>
+      <li className={cardStyles.skeleton__item}></li>
+      <li className={cardStyles.skeleton__item}></li>
+      <li className={cardStyles.skeleton__item}></li>
     </ul>
   );
 };

@@ -6,11 +6,14 @@ const Card = () => {
   const [index, setIndex] = useState(1);
   const [advice, setAdvice] = useState();
 
-  console.log(advice);
   useEffect(() => {
-    // fetch(`https://api.adviceslip.com/advice/${index}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setAdvice(data.slip.advice));
+    fetch(`https://api.adviceslip.com/advice/${index}`)
+      .then((res) => res.json())
+      .then((data) =>
+        setTimeout(() => {
+          setAdvice(data.slip.advice);
+        }, 2000)
+      );
   }, [index]);
 
   return (
@@ -23,9 +26,8 @@ const Card = () => {
                 ADVICE
                 <span className={cardStyles.advice__number}>#{index}</span>
               </div>
-
               {advice ? (
-                `<q className={cardStyles.advice}></q>`
+                <q className={cardStyles.advice}>{advice}</q>
               ) : (
                 <Placeholder />
               )}
