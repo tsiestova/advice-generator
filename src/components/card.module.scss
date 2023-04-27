@@ -87,17 +87,13 @@
   padding: 10px;
   background: #53FFAA url(../../src/components/images/icon-dice.svg) no-repeat center center;
 
-  a {
-    display: block;
-    height: 100%;
-    &:before {
-      content: '';
-    }
+  &:before {
+    content: '';
+  }
 
-    &:hover {
-      background: #53FFAA url(../../src/components/images/icon-dice.svg) no-repeat center center;
-      box-shadow: 0 0 40px #53FFAA;
-    }
+  &:hover {
+    background: #53FFAA url(../../src/components/images/icon-dice.svg) no-repeat center center;
+    box-shadow: 0 0 40px #53FFAA;
   }
 }
 
