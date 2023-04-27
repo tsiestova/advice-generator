@@ -1,0 +1,126 @@
+@use "../styles/abstracts/functions" as media;
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 121px;
+}
+
+.card__inner {
+  background: #313A48;
+  box-shadow: 30px 50px 80px rgba(0, 0, 0, 0.100202);
+  border-radius: 10px;
+  padding: 40px 0 39px;
+  position: relative;
+  width: 100%;
+  min-width: 540px;
+
+  @include media.desktop {
+
+  }
+}
+
+.layout {
+  padding: 0 16px;
+}
+
+.card__name {
+  font-weight: 800;
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 3.45714px;
+  color: #53FFAA;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 24px;
+}
+
+.advice {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: -0.257143px;
+  color: #CEE3E9;
+  margin-bottom: 32px;
+  display: block;
+  border-bottom: 1px solid #4F5D74;
+  padding-bottom: 31px;
+}
+
+.text__block__wrap {
+  position: relative;
+  text-align: center;
+
+  //&:before {
+  //  content: '';
+  //  position: absolute;
+  //  left: 0;
+  //  right: 0;
+  //  margin: auto auto -7px;
+  //  background: #313A48 url(../../src/components/images/group.png) no-repeat center;
+  //  height: 16px;
+  //  width: 50px;
+  //  background-size: contain;
+  //  bottom: 0;
+  //  z-index: 1;
+  //}
+}
+
+.text__block {
+  position: relative;
+  padding: 0 26px;
+}
+
+
+.btn {
+  position: absolute;
+  display: block;
+  width: 64px;
+  height: 64px;
+  bottom: -32px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  padding: 10px;
+  background: #53FFAA url(../../src/components/images/icon-dice.svg) no-repeat center center;
+
+  a {
+    display: block;
+    height: 100%;
+    &:before {
+      content: '';
+    }
+
+    &:hover {
+      background: #53FFAA url(../../src/components/images/icon-dice.svg) no-repeat center center;
+      box-shadow: 0 0 40px #53FFAA;
+    }
+  }
+}
+
+.advice__skeleton {
+  width: 100%;
+  height: 24px;
+  opacity: .7;
+  animation: sceleton-loading 1s linear infinite alternate;
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+
+  &:last-child {
+    content: '';
+    width: 80%;
+  }
+}
+
+@keyframes sceleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
