@@ -7,9 +7,11 @@ const Card = () => {
   const [advice, setAdvice] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(isLoading);
+
   useEffect(() => {
     setIsLoading(true);
-
+    console.log(isLoading);
     return async function fetchData() {
       const response = await fetch(
         `https://api.adviceslip.com/advice/${index}`
