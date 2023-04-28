@@ -6,16 +6,18 @@ const Card = () => {
   const [index, setIndex] = useState(1);
   const [advice, setAdvice] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  console.log(isLoading);
 
   useEffect(() => {
     setIsLoading(true);
 
-    fetch(`https://api.adviceslip.com/advice/${index}`)
-      .then((res) => res.json())
-      .then((data) => setAdvice(data.slip.advice));
-
-    setIsLoading(false);
+    return async function fetchData() {
+      const response = await fetch(
+        `https://api.adviceslip.com/advice/${index}`
+      );
+      const data = await response.json();
+      setAdvice(data.slip.advice);
+      setIsLoading(false);
+    };
   }, [index]);
 
   return (

@@ -46,7 +46,7 @@
   position: relative;
   text-align: center;
   display: flex;
-  min-height: 180px;
+  min-height: 250px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -75,7 +75,6 @@
       height: 2px;
       width: 80%;
       bottom: 40px;
-      /* z-index: 1; */
       background: #4F5D74;
       margin: auto;
     }
@@ -111,8 +110,6 @@
     cursor: pointer;
   }
 }
-
-
 
 .skeleton__list {
   text-align: center;
