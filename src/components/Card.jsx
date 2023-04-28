@@ -20,6 +20,19 @@ const Card = () => {
       setAdvice(data.slip.advice);
       setIsLoading(false);
     };
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    return async function fetchData() {
+      const response = await fetch(
+        `https://api.adviceslip.com/advice/${index}`
+      );
+      const data = await response.json();
+      setAdvice(data.slip.advice);
+      setIsLoading(false);
+    };
   }, [index]);
 
   return (
