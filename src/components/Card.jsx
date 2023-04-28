@@ -10,9 +10,8 @@ const Card = () => {
   console.log(isLoading);
 
   useEffect(() => {
-    setIsLoading(true);
-
     return async function fetchData() {
+      setIsLoading(true);
       const response = await fetch(
         `https://api.adviceslip.com/advice/${index}`
       );
