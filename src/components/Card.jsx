@@ -7,11 +7,9 @@ const Card = () => {
   const [advice, setAdvice] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(isLoading);
-
   useEffect(() => {
     setIsLoading(true);
-    console.log(isLoading);
+
     return async function fetchData() {
       const response = await fetch(
         `https://api.adviceslip.com/advice/${index}`
@@ -38,10 +36,10 @@ const Card = () => {
             }
           >
             <div className={cardStyles.text__block}>
-              {!isLoading ? (
-                <q className={cardStyles.advice}>{advice}</q>
-              ) : (
+              {isLoading ? (
                 <Placeholder />
+              ) : (
+                <q className={cardStyles.advice}>{advice}</q>
               )}
             </div>
           </div>
